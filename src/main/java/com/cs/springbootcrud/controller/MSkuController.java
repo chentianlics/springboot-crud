@@ -2,15 +2,13 @@ package com.cs.springbootcrud.controller;
 
 import com.cs.springbootcrud.model.MSkuEntity;
 import com.cs.springbootcrud.service.MSkuService;
+import com.cs.springbootcrud.vo.GetByIdVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassName MSkuController
@@ -29,7 +27,13 @@ public class MSkuController {
 
     @GetMapping("/getById")
     @ApiOperation("sku")
-    public MSkuEntity getById(@RequestParam("id")Long id){
+    public MSkuEntity getById(HttpServletRequest request ,@RequestParam("id")Long id){
         return mSkuServiceImpl.getById(id);
+    }
+
+    @PostMapping("/get")
+    @ApiOperation("sku2")
+    public MSkuEntity getById(HttpServletRequest request , @RequestBody GetByIdVo getByIdVo){
+        return mSkuServiceImpl.getById(getByIdVo.getId());
     }
 }

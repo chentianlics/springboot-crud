@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cs.springbootcrud.mapper.MSkuMapper">
+
+    <resultMap id="BaseResultMap" type="com.cs.springbootcrud.model.MSkuEntity" >
+        <result column="id" property="id" />
+        <result column="view_id" property="viewId" />
+        <result column="spu_id" property="spuId" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="sale_price" property="salePrice" />
+        <result column="original_price" property="originalPrice" />
+        <result column="stock" property="stock" />
+        <result column="sku_code" property="skuCode" />
+        <result column="descri" property="descri" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="city_id" property="cityId" />
+        <result column="specs" property="specs" />
+        <result column="current_stock" property="currentStock" />
+        <result column="max_stock" property="maxStock" />
+        <result column="next_day_full" property="nextDayFull" />
+        <result column="same_batch_id" property="sameBatchId" />
+    </resultMap>
+
+        <sql id="Base_Column_List">
+                id,view_id,spu_id,tenant_id,sale_price,
+                original_price,stock,sku_code,descri,
+                create_time,update_time,name,status,city_id,specs,current_stock,max_stock,next_day_full,same_batch_id,saas_spu_id
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.cs.springbootcrud.model.MSkuEntity">
+        INSERT INTO m_sku
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != viewId'>
+                view_id,
+            </if>
+            <if test ='null != spuId'>
+                spu_id,
+            </if>
+            <if test ='null != tenantId'>
+                tenant_id,
+            </if>
+            <if test ='null != salePrice'>
+                sale_price,
+            </if>
+            <if test ='null != originalPrice'>
+                original_price,
+            </if>
+            <if test ='null != stock'>
+                stock,
+            </if>
+            <if test ='null != skuCode'>
+                sku_code,
+            </if>
+            <if test ='null != descri'>
+                descri,
+            </if>
+            <if test ='null != createTime'>
+                create_time,
+            </if>
+            <if test ='null != updateTime'>
+                update_time,
+            </if>
+            <if test ='null != name'>
+                name,
+            </if>
+            <if test ='null != status'>
+                status,
+            </if>
+            <if test ='null != cityId'>
+                city_id,
+            </if>
+            <if test ='null != specs'>
+                specs,
+            </if>
+            <if test ='null != currentStock'>
+                current_stock,
+            </if>
+            <if test ='null != maxStock'>
+                max_stock,
+            </if>
+            <if test ='null != nextDayFull'>
+                next_day_full,
+            </if>
+            <if test ='null != sameBatchId'>
+                same_batch_id,
+            </if>
+            <if test ='null != saasSpuId'>
+                saas_spu_id
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != viewId'>
+                #{viewId},
+            </if>
+            <if test ='null != spuId'>
+                #{spuId},
+            </if>
+            <if test ='null != tenantId'>
+                #{tenantId},
+            </if>
+            <if test ='null != salePrice'>
+                #{salePrice},
+            </if>
+            <if test ='null != originalPrice'>
+                #{originalPrice},
+            </if>
+            <if test ='null != stock'>
+                #{stock},
+            </if>
+            <if test ='null != skuCode'>
+                #{skuCode},
+            </if>
+            <if test ='null != descri'>
+                #{descri},
+            </if>
+            <if test ='null != createTime'>
+                #{createTime},
+            </if>
+            <if test ='null != updateTime'>
+                #{updateTime},
+            </if>
+            <if test ='null != name'>
+                #{name},
+            </if>
+            <if test ='null != status'>
+                #{status},
+            </if>
+            <if test ='null != cityId'>
+                #{cityId},
+            </if>
+            <if test ='null != specs'>
+                #{specs},
+            </if>
+            <if test ='null != currentStock'>
+                #{currentStock},
+            </if>
+            <if test ='null != maxStock'>
+                #{maxStock},
+            </if>
+            <if test ='null != nextDayFull'>
+                #{nextDayFull},
+            </if>
+            <if test ='null != sameBatchId'>
+                #{sameBatchId},
+            </if>
+            <if test ='null != saasSpuId'>
+                #{saasSpuId}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM m_sku
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.cs.springbootcrud.model.MSkuEntity">
+        UPDATE m_sku
+        <set>
+            <if test ='null != viewId'>view_id = #{viewId},</if>
+            <if test ='null != spuId'>spu_id = #{spuId},</if>
+            <if test ='null != tenantId'>tenant_id = #{tenantId},</if>
+            <if test ='null != salePrice'>sale_price = #{salePrice},</if>
+            <if test ='null != originalPrice'>original_price = #{originalPrice},</if>
+            <if test ='null != stock'>stock = #{stock},</if>
+            <if test ='null != skuCode'>sku_code = #{skuCode},</if>
+            <if test ='null != descri'>descri = #{descri},</if>
+            <if test ='null != createTime'>create_time = #{createTime},</if>
+            <if test ='null != updateTime'>update_time = #{updateTime},</if>
+            <if test ='null != name'>name = #{name},</if>
+            <if test ='null != status'>status = #{status},</if>
+            <if test ='null != cityId'>city_id = #{cityId},</if>
+            <if test ='null != specs'>specs = #{specs},</if>
+            <if test ='null != currentStock'>current_stock = #{currentStock},</if>
+            <if test ='null != maxStock'>max_stock = #{maxStock},</if>
+            <if test ='null != nextDayFull'>next_day_full = #{nextDayFull},</if>
+            <if test ='null != sameBatchId'>same_batch_id = #{sameBatchId},</if>
+            <if test ='null != sameBatchId'>saas_spu_id = #{saasSpuId}</if>
+        </set>
+        WHERE view_id = #{viewId}
+    </update>
+
+    <select id="getById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM m_sku
+        WHERE id = #{id}
+    </select>
+
+</mapper>

@@ -1,6 +1,8 @@
+#端口号配置
 server:
   port: 9001
 
+#服务名称、数据库等配置
 spring:
   application:
     name: springboot-crud
@@ -9,6 +11,7 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/test?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true
+
     continue-on-error: true
     sql-script-encoding: UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -32,17 +35,29 @@ spring:
       use-global-data-source-stat: true
       filters: stat,wall,log4j2
 
+#mybatis配置
 mybatis:
+  #扫描mapper接口所在包
   type-aliases-package: com.cs.springbootcrud.*
+  #扫描xml所在位置
+  mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-    mapper-locations: classpath:mapper/*.xml
     # 打印sql, 方便调试
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     use-generated-keys: true
     default-statement-timeout: 60
     default-fetch-size: 100
 
-
+#开启swagger2
 swagger2:
   enabled: true
+
+#日志配置
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com:
+      cs:
+        springbootcrud:
+          mapper: debug
