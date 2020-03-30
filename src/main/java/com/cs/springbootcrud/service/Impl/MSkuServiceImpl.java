@@ -2,7 +2,7 @@ package com.cs.springbootcrud.service.Impl;
 
 import com.cs.springbootcrud.mapper.MSkuMapper;
 import com.cs.springbootcrud.model.MSkuEntity;
-import com.cs.springbootcrud.service.MSkuService;
+import com.cs.springbootcrud.service.DemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 @Slf4j
-public class MSkuServiceImpl implements MSkuService {
+public class MSkuServiceImpl implements DemoService {
     @Autowired
     private MSkuMapper mSkuMapper;
 

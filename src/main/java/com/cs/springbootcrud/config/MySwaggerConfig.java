@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfig {
+public class MySwaggerConfig {
 
     //是否开启swagger，正式环境一般是需要关闭的，可根据springboot的多环境配置进行设置 
 //    @Value("${swagger2.enabled}")
